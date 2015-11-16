@@ -1,0 +1,27 @@
+@(loginFailed: Boolean)
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+<div class="head">
+	<div id="top">
+		<div id="logoRepeat"></div>
+		<div id="logo"></div>
+	</div>
+</div>
+
+<div id="main-side">
+	<div id="main-side-login">
+	@if(loginFailed == false){
+		<form action="/user/login" method="POST">
+			<input type="text" name="login"/>
+			<br>
+			<input type="password" name="password"/>
+			<br>
+			<input type="submit">
+		</form>
+	}else{
+		<img src="/assets/images/stalker.jpg" alt="Get out of here"/>
+		<a href="/"><button>Back</button></a>
+	}
+	</div>
+</div>
+
+<div id="bottom">Code created by Bleo, images propably not.</div> 

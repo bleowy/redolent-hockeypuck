@@ -6,6 +6,7 @@ import play.data.Form;
 import play.mvc.*;
 import play.twirl.api.Content;
 import user.Login;
+import user.UserActivity;
 
 public class Application extends Controller{
  public Game game = new Game();
@@ -24,7 +25,7 @@ public class Application extends Controller{
 
     public Result game(){
      if(login.checkSession(session("connected"))){
-
+         new UserActivity(login.parseSession(session("connected"))).checkActivity();
       html = views.html.game.render(user,login.parseSession(session("connected")));
       return ok(html);
      }
@@ -40,6 +41,7 @@ public class Application extends Controller{
      int id = login.login(dynamicForm.get("login"), dynamicForm.get("password"));
      if(id > 0){
       session("connected",Integer.toString(id));
+
       return redirect("/game");
      }
      return redirect("/user/loginFailed");

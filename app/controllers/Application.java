@@ -49,6 +49,7 @@ public class Application extends Controller{
 
     public Result logout(){
         if(login.checkSession(session("connected"))) {
+            new UserActivity(login.parseSession(session("connected"))).deleteUserActivity();
             session().remove("connected");
         }
         return redirect("/");

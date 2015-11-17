@@ -25,12 +25,7 @@ public class User {
 		return new Newspaper().fetchNewspaper();
 	}
 
-	public String getCurrentDate(){
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Calendar cal = Calendar.getInstance();
-
-		return dateFormat.format(cal.getTime());
-		
+	public List getOnline(){		//Last Active players 5 minutes ago
+		return new UserActivity().getNamesOfUsers();
 	}
-	
 }

@@ -25,7 +25,10 @@
         @for(news <- user.getNews()){
         <p>@news</p>
         }
-
+        <p>Online players:</p>
+        @for(online <- user.getOnline()){
+        <p>@online</p>
+        }
     </div>
 
     <div id="bottom">Code created by Bleo, images propably not.</div>

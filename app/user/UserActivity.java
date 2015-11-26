@@ -152,7 +152,7 @@ public class UserActivity extends Game{
         }
     }
 
-    private Date parseStringToDate(String a){
+    public Date parseStringToDate(String a){
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         try{
         Date d1 = format.parse(a);
@@ -163,7 +163,18 @@ public class UserActivity extends Game{
 
     }
 
-    private String getCurrentTime(){
+    public Date parseLongToDate(long a){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date d1 = new Date(a);
+            return d1;
+    }
+
+    public String parseDateToString(Date a){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        return format.format(a);
+    }
+
+    public String getCurrentTime(){
             DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             Calendar cal = Calendar.getInstance();
             return dateFormat.format(cal.getTime());

@@ -1,10 +1,10 @@
 @(user: Handler,sessionId: Integer)
 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
 <div class="head">
- <div id="top">
-  <div id="logoRepeat"></div>
-  <div id="logo"></div>
- </div>
+    <div id="top">
+        <div id="logoRepeat"></div>
+        <div id="logo"></div>
+    </div>
 </div>
 
 <div id="main-side">
@@ -19,19 +19,9 @@
         <p>@user.getUser(sessionId).getLocation()</p>
         <p>@user.getUser(sessionId).getLocationWeather()</p>
     </div>
-
     <div id="main">
-        Welcome back @user.getUser(sessionId).getName()
-        <p>News:</p>
-        @for(news <- user.getNews()){
-        <p>@news</p>
-        }
-        <p>Online players:</p>
-        @for(online <- user.getOnline()){
-        <p>@online</p>
-        }
+        <p><a href="/game/testExpedition"><button>Test me</button></a></p>
     </div>
 
     <div id="bottom">Code created by Bleo, images propably not.</div>
 </div>
-
